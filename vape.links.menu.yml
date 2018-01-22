@@ -1,5 +1,11 @@
 vape.admin:
-        title: 'Vape'
+        title: 'Vape Settings'
         description: 'Stuff'
         route_name: vape.settings
+        weight: 100
+
+vape.menu:
+        title: 'Vape API'
+        description: 'Stuff'
+        route_name: vape.form
         weight: 100

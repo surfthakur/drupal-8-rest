@@ -17,7 +17,7 @@ class Utils
 	 * @param array  $header
 	 * @return mixed
 	 */
-	public function curl($url, $params = [], $method = "POST", $header = [])
+	public static function curl($url, $params = [], $method = "POST", $header = [])
 	{
 		try {
 			curl_init();
@@ -28,7 +28,6 @@ class Utils
 				'Content-Length: ' . strlen($data_string),
 			];
 			$headers = array_merge($headers, $header);
-			
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -39,13 +38,14 @@ class Utils
 			$result = Json::decode($result);
 			
 			return $result;
+			
 		} catch (\Exception $e) {
 			
 			var_dump($e->getMessage());
 		}
 	}
 	
-	public function getApiUrl()
+	public static function getApiUrl()
 	{
 		return \Drupal::configFactory()->get(self::VAPE_SETTING_NAME)->getRawData()['url'];
 	}

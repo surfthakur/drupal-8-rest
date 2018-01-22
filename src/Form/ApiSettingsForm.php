@@ -8,6 +8,7 @@ use \Drupal\vape\Helper\Utils;
 
 class ApiSettingsForm extends ConfirmFormBase
 {
+	
 	public function getFormId()
 	{
 		return Utils::VAPE_SETTING_FORM_ID;
