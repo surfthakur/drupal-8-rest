@@ -7,8 +7,6 @@ use Drupal\Core\Form\FormStateInterface;
 
 abstract class AbstractFormBase extends FormBase
 {
-	
-	
 	public function buildForm(array $form, FormStateInterface $form_state)
 	{
 		return $form;

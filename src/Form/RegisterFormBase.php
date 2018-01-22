@@ -2,35 +2,58 @@
 
 namespace Drupal\vape\Form;
 
+use Drupal\Core\Form\FormStateInterface;
+use \Drupal\vape\Helper\Utils;
 
 class RegisterFormBase extends AbstractFormBase
 {
-	const VAPE_REGISTER_FORM_ID = 'vape_register_form';
-	
 	public function getFormId()
 	{
-		return self::VAPE_REGISTER_FORM_ID;
+		return Utils::VAPE_REGISTER_FORM_ID;
 	}
 	
-	protected function getApisByName($name)
+	public function buildForm(array $form, FormStateInterface $form_state)
 	{
-		return $this->getApis()[$name]['url'];
+		
+		// Select.
+		$form['type'] = [
+			'#type'         => 'select',
+			'#title'        => $this->t('type of connection'),
+			'#options'      => $this->getApis(),
+			'#empty_option' => $this->t('-select-'),
+			'#required'     => true,
+		];
+		
+		
+		$form['actions']['#type'] = 'actions';
+		
+		$form['actions']['submit'] = [
+			'#type'        => 'submit',
+			'#value'       => $this->t('Submit'),
+			'#button_type' => 'primary',
+		];
+		
+		return parent::buildForm($form, $form_state);
 	}
+	
+	protected function getApiOptions()
+	{
+		$options = [];
+		
+		foreach ($this->getApis() as $k => $api) {
+			$options[$api] = $k;
+		}
+		
+		return $options;
+	}
+	
 	
 	protected function getApis()
 	{
 		return [
-			'login' => [
-				'url' => '/rest/V1/propcom/webservice/user/login',
-			],
-			
-			'register' => [
-				'url' => '/rest/V1/propcom/webservice/user/',
-			],
-			
-			'countries' => [
-				'url' => '/rest/V1/propcom/webservice/address/countries',
-			],
+			'/rest/V1/propcom/webservice/user/login'        => 'login',
+			'/rest/V1/propcom/webservice/user/'             => 'register',
+			'/rest/V1/propcom/webservice/address/countries' => 'countries',
 		];
 	}
 }

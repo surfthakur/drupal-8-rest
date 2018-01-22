@@ -5,3 +5,11 @@ vape.settings:
                 _title: 'Set up api url'
         requirements:
                 _permission: 'administer site configuration'
+
+vape.form:
+        path: '/vapeapi'
+        defaults:
+                _form: '\Drupal\vape\Form\RegisterFormBase'
+                _title: 'api form '
+        requirements:
+                _permission: 'access content'

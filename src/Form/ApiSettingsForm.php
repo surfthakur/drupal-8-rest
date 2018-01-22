@@ -4,20 +4,18 @@ namespace Drupal\vape\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use \Drupal\vape\Helper\Utils;
 
 class ApiSettingsForm extends ConfirmFormBase
 {
-	const VAPE_SETTING_FORM_ID = 'vape_api_admin_settings';
-	const VAPE_SETTING_NAME = 'vape.settings';
-	
 	public function getFormId()
 	{
-		return self::VAPE_SETTING_FORM_ID;
+		return Utils::VAPE_SETTING_FORM_ID;
 	}
 	
 	public function buildForm(array $form, FormStateInterface $form_state)
 	{
-		$config = $this->config(self::VAPE_SETTING_NAME);
+		$config = $this->config(Utils::VAPE_SETTING_NAME);
 		
 		$form['url'] = [
 			'#type'          => 'textfield',
@@ -32,7 +30,7 @@ class ApiSettingsForm extends ConfirmFormBase
 	{
 		try {
 			$this->configFactory()
-				->getEditable(self::VAPE_SETTING_NAME)
+				->getEditable(Utils::VAPE_SETTING_NAME)
 				->set(
 					'url',
 					$form_state->getValue('url')

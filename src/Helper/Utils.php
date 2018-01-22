@@ -6,6 +6,10 @@ use Drupal\Component\Serialization\Json;
 
 class Utils
 {
+	const VAPE_SETTING_FORM_ID = 'vape_api_admin_settings';
+	const VAPE_SETTING_NAME = 'vape.settings';
+	const VAPE_REGISTER_FORM_ID = 'vape_register_form';
+	
 	/**
 	 * @param        $url
 	 * @param array  $params
@@ -39,5 +43,10 @@ class Utils
 			
 			var_dump($e->getMessage());
 		}
+	}
+	
+	public function getApiUrl()
+	{
+		return \Drupal::configFactory()->get(self::VAPE_SETTING_NAME)->getRawData()['url'];
 	}
 }
