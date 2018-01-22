@@ -1,0 +1,10 @@
+{
+    "name": "surfarazthakur/drupal-8-rest",
+	"description": "Drupal 8 training for rest",
+	"require": {
+		"php": "~5.5.0|~5.6.0|~7.1.11"
+	},
+	"type": "drupal-module",
+	"version" :"1.0.0"	
+}
+

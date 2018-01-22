@@ -1,0 +1,7 @@
+pingpong.content:
+        path: '/vapes'
+        defaults:
+                _controller: '\Drupal\vapes\Controller\Vape::content'
+                _title: 'Welcome'
+        requirements:
+                _permission: 'access content'

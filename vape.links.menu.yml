@@ -1,0 +1,5 @@
+vape.admin:
+        title: 'Vape'
+        description: 'Stuff'
+        route_name: vape.content
+        weight: 100

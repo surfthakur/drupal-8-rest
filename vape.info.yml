@@ -1,0 +1,6 @@
+name: Vape
+description: Rest Training module
+package: Surfarazthakur
+type: module
+version: 1.0.0
+core: 8.x
