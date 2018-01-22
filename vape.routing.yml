@@ -1,7 +1,7 @@
 vape.settings:
         path: '/admin/structure/vape/settings'
         defaults:
-                _form: '\Drupal\vape\Form\apiSettingsForm'
+                _form: '\Drupal\vape\Form\ApiSettingsForm'
                 _title: 'Set up api url'
         requirements:
                 _permission: 'administer site configuration'

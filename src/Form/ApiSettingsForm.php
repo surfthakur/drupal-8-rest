@@ -5,7 +5,7 @@ namespace Drupal\vape\Form;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class apiSettingsForm extends ConfirmFormBase
+class ApiSettingsForm extends ConfirmFormBase
 {
 	const VAPE_SETTING_FORM_ID = 'vape_api_admin_settings';
 	const VAPE_SETTING_NAME = 'vape.settings';
