@@ -2,10 +2,11 @@
 
 namespace Drupal\vape\Form;
 
+use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\vape\Helper\Utils;
 
-class RegisterFormBase extends AbstractFormBase
+class RegisterFormBase extends FormBase
 {
 	public function getFormId()
 	{
