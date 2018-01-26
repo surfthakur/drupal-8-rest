@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * install schema
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function vape_schema(){
+  $schema['vape'] = [
+    'description' => 'Stores access token, timestamp,and uid for an vape access',
+    'fields'      => [
+      'id'          => [
+        'description' => 'the primary identifier for the record',
+        'type'        => 'serial',
+        'unsigned'    => TRUE,
+        'not null'    => TRUE,
+      ],
+      'uid'         => [
+        'description' => 'the {users}.uid that connected',
+        'type'        => 'int',
+        'not null'    => TRUE,
+        'default'     => 0,
+      ],
+      'accessToken' => [
+        'description' => 'Token',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'revoked'     => [
+        'description' => 'is token revoked',
+        'type'        => 'int',
+        'length'      => 2,
+        'no null'     => FALSE,
+        'default'     => 0,
+      
+      ],
+      'created'     => [
+        'description' => 'Timestamp for when RSBP was created',
+        'type'        => 'int',
+        'no null'     => TRUE,
+        'default'     => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes'     => [
+      'node_user' => ['uid'],
+    ],
+  ];
+  
+  
+  return $schema;
+}

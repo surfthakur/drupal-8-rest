@@ -36,12 +36,12 @@ class Utils
 			$result = curl_exec($ch);
 			curl_close($ch);
 			$result = Json::decode($result);
-			
+			kint($result);
 			return $result;
 			
 		} catch (\Exception $e) {
 			
-			var_dump($e->getMessage());
+			var_dump($e->getMessage()); die();
 		}
 	}
 	

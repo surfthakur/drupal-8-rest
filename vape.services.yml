@@ -1,0 +1,4 @@
+services:
+  vape.dbservice:
+    class: Drupal\vape\DbService
+    arguments: ['@database']
